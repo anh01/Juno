@@ -6,13 +6,13 @@ import { Provider } from 'react-redux';
 import Main from './Main';
 import Menu from './Menu';
 import store from '../redux/store';
-import Shop from './Main/Shop';
+import PlayGround from './PlayGround';
 
 StatusBar.setHidden(true);
 
 export default class App extends Component {
     render() {
-        return (
+        const normal = (
             <Provider store={store}>
                 <View style={styles.container}>
                     <SideMenu menu={<Menu />}>
@@ -21,8 +21,11 @@ export default class App extends Component {
                 </View>
             </Provider>
         );
+        return <PlayGround />;
     }
 }
+
+
 
 const styles = StyleSheet.create({
     container: {
