@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, StatusBar } from 'react-native';
 import SideMenu from 'react-native-side-menu';
 import { Provider } from 'react-redux';
 
 import Main from './Main';
 import Menu from './Menu';
 import store from '../redux/store';
+import Shop from './Main/Shop';
+
+StatusBar.setHidden(true);
 
 export default class App extends Component {
     render() {
@@ -29,3 +32,13 @@ const styles = StyleSheet.create({
         backgroundColor: '#DDFDD2'
     }
 });
+
+/*export default class App extends Component {
+    render() {
+        return (
+            <Provider store={store}>
+                <Shop />
+            </Provider>
+        );
+    }
+}*/

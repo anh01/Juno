@@ -1,4 +1,4 @@
-const tab = (state = 'SHOP', action) => {
+const tab = (state = 'SEARCH', action) => {
     if (action.type === 'CHANGE_MAIN_TAB') {
         return action.name;
     }

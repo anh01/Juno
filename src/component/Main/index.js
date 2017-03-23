@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import Nav from './BottomNav';
 import Top from './Top';
@@ -25,8 +25,10 @@ class Main extends Component {
     const { tab } = this.props;
     return (
       <View style={styles.wrapper}>
-        <View style={styles.body}>
+        <View style={styles.top}>
           <Top />
+        </View>
+        <View style={styles.body}>
           { getComponent(tab) }
         </View>
         <View style={styles.nav}>
@@ -37,19 +39,24 @@ class Main extends Component {
   }
 }
 
+const { width, height } = Dimensions.get('window');
+
 const styles = StyleSheet.create({
   wrapper: {
-    backgroundColor: '#CDCCDC',
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    backgroundColor: '#D8D8D8',
+    height, 
+    width
+  },
+  top: {
+    width,
+    height: (3 * height) / 20
   },
   nav: {
-    flex: 2,
+    height: height / 10,
     justifyContent: 'flex-end',
   },
   body: {
-    flex: 10,
+    height: 15 * (height / 20),
     justifyContent: 'flex-start'
   }
 });

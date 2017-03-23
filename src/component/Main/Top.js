@@ -1,29 +1,38 @@
 import React, { Component } from 'react';
 import { 
     View, StyleSheet, TouchableOpacity,
-    Image, Dimensions, TextInput 
+    Image, Dimensions, TextInput,
+    Text 
 } from 'react-native';
 
 const { width } = Dimensions.get('window');
-const cartImage = require('../../media/navIcon/cart.png');
-const logoImage = require('../../media/navIcon/cart.png');
+const logo = require('../../media/logo.png');
+const menuIcon = require('../../media/ic_menu.png');
 
 export default class BottomNav extends Component {
   render() {
     return (
         <View style={styles.mainContainer}>
-            <TouchableOpacity style={styles.control}>
+            <View style={styles.rowOne}>
+                <TouchableOpacity style={{ flexDirection: 'row' }}>
+                    <Image 
+                        source={menuIcon} 
+                        style={styles.menuIcon}
+                    />
+                </TouchableOpacity>
+                <View style={styles.textContainer}>
+                    <Text style={styles.textLogo}>Khoa Pham</Text>
+                </View>
                 <Image 
-                    source={cartImage}
+                    source={logo}
+                    style={styles.logo}
                 />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.control}>
-                <Image 
-                    source={logoImage}
+            </View>
+            <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                <TextInput 
+                    style={styles.input} 
+                    placeholder='What do you want to buy?'
                 />
-            </TouchableOpacity>
-            <View style={styles.viewInput}>
-                <TextInput style={styles.textInput} />
             </View>
         </View>
     );
@@ -31,25 +40,39 @@ export default class BottomNav extends Component {
 }
 
 const styles = StyleSheet.create({
-  mainContainer: {
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    width,
-    paddingTop: 30,
-    backgroundColor: '#C8C8C8'
-  },
-  textInput: {
-      height: 30,
-      backgroundColor: '#F5F5F5'
-  },
-  logo: {
-      flex: 4
-  },
-  control: {
-      flex: 4
-  },
-  viewInput: {
-      flex: 8,
-      marginRight: 10
-  }
+    mainContainer: {
+        flex: 1,
+        backgroundColor: '#7D59C8',
+        paddingHorizontal: 10,
+        paddingTop: 10
+    },
+    rowOne: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingBottom: 10
+    },
+    input: {
+        height: 30,
+        width: width - 30,
+        backgroundColor: '#FFFFFF',
+        paddingLeft: 10
+    },
+    menuIcon: {
+        width: 30,
+        height: 30
+    },
+    logo: {
+        width: 30,
+        height: 30,
+        marginRight: 10
+    },
+    textContainer: {
+        justifyContent: 'center',
+        paddingLeft: 10
+    },
+    textLogo: {
+        color: '#FFFFFF',
+        fontSize: 15,
+        fontWeight: 'bold'
+    }
 });
