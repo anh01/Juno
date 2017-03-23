@@ -43,8 +43,10 @@ export default class Search extends Component {
               <View style={styles.imageNewContainer}>
                 <Image source={tin1} style={styles.imageNews} />
               </View>
-              <View>
-                <Text>Áo ngực - Bí mật điệu đà của phái đẹp trong mùa đông</Text>
+              <View style={styles.titleNewContainer}>
+                <Text style={styles.newsTitle}>
+                  Áo ngực - Bí mật điệu đà của phái đẹp trong mùa đông
+                </Text>
               </View>
             </View>
           </View>
@@ -109,6 +111,25 @@ const styles = StyleSheet.create({
     color: '#C92A62',
     fontWeight: '500'
   },
+  news: {
+    flexDirection: 'row',
+
+    backgroundColor: '#fff',
+    borderRadius: 4,
+    shadowColor: '#D9D9D9',
+    shadowOpacity: 0.3,
+    shadowOffset: {
+      height: 3
+    },
+    padding: 10,
+  },
+  imageNews: {
+    width: width / 5,
+    height: width / 5
+  },
+  newsTitle: {
+    color: '#909090',
+  },
   listNews: {
 
   },
@@ -116,9 +137,11 @@ const styles = StyleSheet.create({
 
   },
   imageNewContainer: {
-
+    flex: 2
   },
-  imageNews: {
-
+  titleNewContainer: {
+    flex: 10,
+    justifyContent: 'center',
+    paddingLeft: 30
   }
 });

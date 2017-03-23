@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-export default class Cart extends Component {
+export default class ProductDetail extends Component {
   render() {
+    const { wrapper, header } = style;
     return (
-      <View style={styles.mainContainer}>
-        <Text>Cart Component</Text>
+      <View style={wrapper}>
+        <View style={header}>
+          <Text>Không vui mấy</Text>
+        </View>
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  mainContainer: {
-    backgroundColor: '#5B6CF9',
-    justifyContent: 'center',
-    alignItems: 'center',
+const style = StyleSheet.create({
+  wrapper: {
+    flex: 1
+  },
+  header: {
+    flex: 1
+  },
+  body: {
     flex: 1
   }
 });
