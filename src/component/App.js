@@ -6,7 +6,6 @@ import { Provider } from 'react-redux';
 import Main from './Main';
 import Menu from './Menu';
 import store from '../redux/store';
-import PlayGround from './PlayGround';
 
 StatusBar.setHidden(true);
 
@@ -21,7 +20,7 @@ export default class App extends Component {
                 </View>
             </Provider>
         );
-        return <PlayGround />;
+        return normal;
     }
 }
 

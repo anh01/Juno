@@ -1,30 +1,45 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, Dimensions } from 'react-native';
 
-const sp4 = require('../../../media/productImage/sp5.jpg');
+const sp = require('../../../media/productImage/sp2.jpg');
+const heart = require('../../../media/like.png');
+const cart = require('../../../media/cart.png');
 
 export default class ProductDetail extends Component {
   render() {
-    const { wrapper, header, imageWrapper, image, cart, code, codeContainer, titleCenter } = styles;
+    const { 
+      wrapper, cardStyle, header, 
+      footer, heartStyle, productStyle,
+      imageContainer, cartStyle, textBlack,
+      textSmoke, textHighlight, textMain, titleContainer,
+      descContainer, descStyle, endStyle, linkStyle 
+    } = styles;
     return (
       <View style={wrapper}>
-        <View style={cart}>
+        <View style={cardStyle}>
           <View style={header}>
-            <View style={titleCenter}>
-              <Text 
-                style={{ 
-                  color: '#90A2A1', 
-                  fontWeight: 'bold', 
-                }}
-              >Giày nhung nam
-            </Text>
-            </View>
-            <View style={codeContainer}>
-              <Text style={code}>NGN003</Text>
-            </View>
+            <Image style={heartStyle} source={heart} />
+            <Image style={cartStyle} source={cart} />
           </View>
-          <View style={imageWrapper}>
-            <Image source={sp4} style={image} />
+          <View style={imageContainer}>
+            <Image style={productStyle} source={sp} />
+          </View>
+          <View style={footer}>
+            <View style={titleContainer}>
+              <Text style={textMain}>
+                <Text style={textBlack}>Corella</Text>
+                <Text style={textHighlight}> / </Text>
+                <Text style={textSmoke}>Vedella</Text>
+              </Text> 
+            </View> 
+            <View style={descContainer}>
+              <Text style={descStyle}>
+                This is a man bag. For man who real, 100% man, if you are a man, who love fashion, you must buy it and have it in your collection. If you are not man, You still need to buy it, to prove others, you are a man!
+              </Text>
+              <Text style={endStyle}>
+                For more infomation, click <Text style={linkStyle}>khoapham.vn</Text>
+              </Text>
+            </View>
           </View>
         </View>
       </View>
@@ -36,56 +51,78 @@ const { width } = Dimensions.get('window');
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    alignItems: 'center',
-    backgroundColor: '#F5F5F5'
+    alignItems: 'stretch',
+    backgroundColor: '#CFDFDC',
   },
-  cart: {
+  cardStyle: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignSelf: 'stretch',
-    margin: 10,
-    borderRadius: 4,
-    borderBottomWidth: 1,
-    borderColor: '#E6E5E6',
-    shadowColor: '#BEBEBE',
-    shadowOffset: {
-      width: 3
-    },
-    shadowOpacity: 0.3
+    backgroundColor: '#FFFFFF',
+    borderRadius: 5,
+    marginHorizontal: 20,
+    marginVertical: 20
   },
   header: {
-    flex: 1,
-    justifyContent: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    margin: 20,
+    flex: 1
+  },
+  cartStyle: {
+    width: 40,
+    height: 40
+  },
+  heartStyle: {
+    width: 35,
+    height: 35
+  },
+  productStyle: {
+    width: width / 2,
+    height: width / 2
+  },
+  footer: {
+    flex: 4
+  },
+  imageContainer: {
+    flex: 4,
+    alignItems: 'center'
+  },
+  textMain: {
+    paddingLeft: 20,
+  },
+  textBlack: {
+    fontFamily: 'Avenir',
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#3F3F46'
+  },
+  textSmoke: {
+    fontFamily: 'Avenir',
+    fontSize: 20,
+    color: '#9A9A9A'
+  },
+  textHighlight: {
+    fontFamily: 'Avenir',
+    fontSize: 20,
+    color: '#7D59C8'
+  },
+  titleContainer: {
     borderBottomWidth: 1,
-    borderColor: '#E6E5E6',
-    marginBottom: 10
+    borderColor: '#F6F6F6',
+    marginHorizontal: 20,
+    paddingBottom: 5
   },
-  productName: {
-    fontWeight: 'bold'
+  descContainer: {
+    margin: 10,
+    paddingTop: 10
   },
-  imageWrapper: {
-    flex: 8,
+  descStyle: {
+    color: '#AFAFAF'
   },
-  image: {
-    width: width * 0.7,
-    height: width * 0.7,
-    alignSelf: 'center'
+  endStyle: {
+    color: '#AFAFAF',
+    paddingTop: 10
   },
-  code: {
-    color: '#00B3EB',
-    alignSelf: 'flex-end'
-  },
-  codeContainer: {
-    flex: 1,
-    alignSelf: 'stretch',
-    justifyContent: 'center',
-    paddingRight: 10
-  },
-  titleCenter: {
-    flex: 1,
-    position: 'absolute',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#DDF3FC'
+  linkStyle: {
+    color: '#7D59C8'
   }
 });
