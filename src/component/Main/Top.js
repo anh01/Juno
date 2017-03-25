@@ -14,7 +14,7 @@ export default class BottomNav extends Component {
     return (
         <View style={styles.mainContainer}>
             <View style={styles.rowOne}>
-                <TouchableOpacity style={{ flexDirection: 'row' }}>
+                <TouchableOpacity style={{ flexDirection: 'row' }} onPress={this.props.open}>
                     <Image 
                         source={menuIcon} 
                         style={styles.menuIcon}

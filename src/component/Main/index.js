@@ -26,7 +26,7 @@ class Main extends Component {
     return (
       <View style={styles.wrapper}>
         <View style={styles.top}>
-          <Top />
+          <Top open={this.props.open} />
         </View>
         <View style={styles.body}>
           { getComponent(tab) }

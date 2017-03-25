@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
+
+const { navigator } = require('../../../global');
 
 // const { width, height } = Dimensions.get('window');
 
-export default class Top extends Component {
-  render() {
-    return (
-      <View style={styles.wrapper}>
-          <View style={styles.header}>
-            <Text style={styles.text}>Pho</Text>
-          </View>
-      </View>
-    );
+class Top extends Component {
+    toDetail() {
+        console.log(navigator);
+    }
+    render() {
+        return (
+            <View style={styles.wrapper}>
+                <TouchableOpacity onPress={this.toDetail.bind(this)}>
+                    <Text>To Detail</Text>
+                </TouchableOpacity>
+            </View>
+        );
   }
 }
 
@@ -34,3 +40,5 @@ const styles = StyleSheet.create({
         alignSelf: 'center'
     }   
 });
+
+module.exports = connect(state => ({ navigator: state.navigator }))(Top);
