@@ -2,13 +2,11 @@ import React, { Component } from 'react';
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 
-const { navigator } = require('../../../global');
-
 // const { width, height } = Dimensions.get('window');
 
 class Top extends Component {
     toDetail() {
-        console.log(navigator);
+        
     }
     render() {
         return (

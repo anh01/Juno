@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
-import { connect } from 'react-redux';
 
 import Card from './partials/Card';
 import Top from './Top';
 
-class MainView extends Component {
-    componentWillMount() {
-        console.log('WIll mount');
-        const { dispatch, navigator } = this.props;
-        dispatch({ type: 'SET_NAVIGATOR', navigator });
+export default class MainView extends Component {
+    openMenu() {
+        const { navigator } = this.props;
+        navigator.push({ name: 'DETAIL' });
     }
     render() {
         return (
@@ -18,10 +16,10 @@ class MainView extends Component {
                 <ScrollableTabView
                 renderTabBar={() => (
                     <DefaultTabBar
-                    backgroundColor='#7D59C8'
-                    inactiveTextColor='#E4DDF4'
-                    activeTextColor='#FFFFFF'
-                    underlineStyle={{ backgroundColor: '#FFFFFF' }}
+                        backgroundColor='#7D59C8'
+                        inactiveTextColor='#E4DDF4'
+                        activeTextColor='#FFFFFF'
+                        underlineStyle={{ backgroundColor: '#FFFFFF' }}
                     />
                 )}
                 >
@@ -38,6 +36,9 @@ class MainView extends Component {
                     <Text>D</Text>
                 </View>
                 </ScrollableTabView>
+                <TouchableOpacity onPress={this.openMenu.bind(this)}>
+                    <Text>Open</Text>
+                </TouchableOpacity>
             </View>
         );
     }
@@ -58,5 +59,3 @@ const styles = StyleSheet.create({
     flex: 1
   }
 });
-
-module.exports = connect(state => ({ navigator: state.navigator }))(MainView);
