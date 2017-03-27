@@ -6,7 +6,8 @@ import { connect } from 'react-redux';
 
 class Top extends Component {
     toDetail() {
-        
+        const { navigator } = this.props;
+        navigator.push({ name: 'DETAIL' });
     }
     render() {
         return (
@@ -39,4 +40,4 @@ const styles = StyleSheet.create({
     }   
 });
 
-module.exports = connect(state => ({ navigator: state.navigator }))(Top);
+module.exports = connect(state => ({ navigator: state.nav }))(Top);

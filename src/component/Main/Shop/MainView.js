@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
+import { connect } from 'react-redux';
 
 import Card from './partials/Card';
 import Top from './Top';
 
-export default class MainView extends Component {
+class MainView extends Component {
+    componentDidMount() {
+        const { dispatch, navigator } = this.props;
+        dispatch({ type: 'SET_NAVIGATOR', nav: navigator });
+    }
     openMenu() {
         const { navigator } = this.props;
         navigator.push({ name: 'DETAIL' });
@@ -41,9 +46,10 @@ export default class MainView extends Component {
                 </TouchableOpacity>
             </View>
         );
-    }
-    
+    }    
 }
+
+module.exports = connect()(MainView);
 
 const styles = StyleSheet.create({
   mainContainer: {

@@ -1,6 +1,6 @@
 const navigator = (state = null, action) => {
     if (action.type === 'SET_NAVIGATOR') {
-        return action.navigator;
+        return action.nav;
     }
     return state;
 };

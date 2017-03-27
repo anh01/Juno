@@ -7,6 +7,6 @@ import navigator from './navigatorReducer';
 
 const redux = require('redux');
 
-const reducer = redux.combineReducers({ tab, navigator });
+const reducer = redux.combineReducers({ tab, nav: navigator });
 
 export default reducer;

@@ -9,6 +9,10 @@ const renderScene = (route, navigator) => {
 };
 
 export default class Shop extends Component {
+  renderScene(route, navigator) {
+    if (route.name === 'DETAIL') return <ProductDetail />;
+    return <MainView navigator={navigator} />;
+  }
   render() {
     return (
       <Navigator 
